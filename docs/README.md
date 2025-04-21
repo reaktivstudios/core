@@ -9,3 +9,11 @@ That work benefits greatly from a shared set of objectives and goals. As a devel
 ---
 This plugin is a collection of utilities, best practices, and documents that form the bedrock of our approach to building websites.
 
+---
+
+## Coming Next:
+- Guide to CLI Scripts
+- Migration Guide
+- Git Flow
+- Invisible UI
+- General Coding Standards
