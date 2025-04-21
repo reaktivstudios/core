@@ -11,6 +11,15 @@ This plugin is a collection of utilities, best practices, and documents that for
 
 ---
 
+## Updating Documentation
+
+Documentation for this site lives alongside the code for Foundation, Reaktiv's utility plugin that underpins most of the work that we do.
+
+To update this doc, either:
+1. Add a document direclty to the a category inside of the `docs` directory of the repo, or
+2. Add a markdown document anywhere in the repo, with a name that matches the class or file it refers to. This will be automatically collected and added to the "guides" categrory of this site on deploy.
+
+
 ## Coming Next:
 - Guide to CLI Scripts
 - Migration Guide
