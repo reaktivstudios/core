@@ -30,7 +30,7 @@ class Core {
 		// '\RKV\Utilities\FSE\Reset_To_Theme',
 
 		// // Post Types.
-		// '\RKV\Utilities\Post_Type\CTAs',
+		'\RKV\Utilities\Post_Type\CTAs',
 
 		// // REST.
 		// '\RKV\Utilities\REST\Load_More',

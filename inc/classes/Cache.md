@@ -54,7 +54,7 @@ Each time a successful request is made, both keys are set at the same time to ma
 
 ## The RKV Cache Class
 
-[`/inc/classes/Cache.php`]('../inc/classes/Cache.php)
+[`/inc/classes/Cache.php`](../inc/classes/Cache.php)
 
 The RKV Cache class makes managing cache simpler by storing the common parameters for cache in one place and providing a set of helpers for retrieving and setting values.
 
