@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/reaktivstudios/foundation/issues"
   },
-  "homepage": "https://github.com/reaktivstudios/foundation#readme"
+  "homepage": "https://github.com/reaktivstudios/foundation#readme",
+  "devDependencies": {
+		"docsify-cli": "4.4.4"
+  }
 }
