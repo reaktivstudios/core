@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Foundation
+ * Plugin Name: Core
  * Plugin URI: https://github.com/reaktivstudios/foundation
  * Description: A collection of utilities, helpers and best practices for WordPress.
  * Author: Reaktiv Studios
