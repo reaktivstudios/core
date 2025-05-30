@@ -72,8 +72,12 @@ async function updateDocsifySidebar(file) {
             return;
         }
 
+        // Replace underscores with spaces in the file name.
+        const basename = path.basename(file, '.md');
+        const sidebarTitle = basename.replace(/_/g, ' ');
+
         // Add the file under "Guides"
-        lines.splice(guidesIndex + 1, 0, `\t- [${path.basename(file, '.md')}](${relativePath})`);
+        lines.splice(guidesIndex + 1, 0, `\t- [${sidebarTitle}](${relativePath})`);
         await fs.writeFile(sidebarFile, lines.join('\n'), 'utf8');
 
         console.log(`Added ${relativePath} to the sidebar.`);
