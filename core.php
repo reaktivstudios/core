@@ -5,7 +5,7 @@
  * Description: A collection of utilities, helpers and best practices for WordPress.
  * Author: Reaktiv Studios
  * Author URI: https://reaktiv.co
- * Version: 1.0.0
+ * Version: 0.1.0
  * License: GPL2+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  *
