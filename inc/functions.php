@@ -27,8 +27,13 @@ function is_app( $input_var = 'embedded', $test = 'app', $input_type = INPUT_GET
 	/**
 	 * Filters whether the current request is an app page.
 	 * 
-	 * @param bool $is_app Whether the current request is an app page.
-	 * @return bool
+	 * @param bool   $is_app     Whether the current request is an app page.
+	 * @param string $input_var  The input variable to check.
+	 * @param string $test       The value to test against.
+	 * @param int    $input_type The input type to check.
+	 * @param int    $filter     The filter to apply.
+	 *
+	 * @return bool True if the current request is an app page, false otherwise.
 	 */
-	return apply_filters( 'rkv_core_is_app', $is_app );
+	return apply_filters( 'rkv_core_is_app', $is_app, $input_var, $test, $input_type, $filter );
 }
