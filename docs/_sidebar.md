@@ -4,3 +4,6 @@
 - Guides
 	- [Post Type](./guides/Post_Type.md)
 	- [Cache](./guides/Cache.md)
+
+- Contributing
+	- [License](./contributing/license.md)
