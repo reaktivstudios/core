@@ -11,6 +11,7 @@
  *
  * @package rkv-utilities
  */
+
 define( 'RKV_UTILITIES_PATH', plugin_dir_path( __FILE__ ) );
 define( 'RKV_UTILITIES_URL', plugin_dir_url( __FILE__ ) );
 
@@ -18,6 +19,8 @@ define( 'RKV_UTILITIES_URL', plugin_dir_url( __FILE__ ) );
  * Autoloader
  */
 require_once RKV_UTILITIES_PATH . 'vendor/autoload.php';
+
+require_once RKV_UTILITIES_PATH . 'inc/functions.php';
 
 /**
  * Boostrap all of our core functions.
