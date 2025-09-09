@@ -22,11 +22,8 @@ Each repo contains a pull request template which should be filled out before sub
 
 ## Workflow
 
-The `develop` branch is the development branch which means it contains the next version to be released. `stable` contains the current latest release and `trunk` contains the corresponding stable development version. Always work on the `develop` branch and open up PRs against `develop`.
+The `develop` branch is the development branch which means it contains the next version to be released. `main` contains the current latest release`develop` branch and open up PRs against `develop`.
 
-## Release instructions
+## Branching Instructions
 
-1. Branch: Starting from `develop`, create a release branch named `release/X.Y.Z` for your changes.
-2. Follow pull request checklist: A draft release pull request will be created once you push your branch to GitHub. Follow the steps in the pull request.
-
-Should the pull request fail to be created, a pull request can be manually created using the [template file](https://github.com/10up/distributor/blob/develop/.github/release-pull-request-template.md) containing each of the steps.
+In general, branches should follow these naming conventions, which makes it easier to triage and organize PRs into releases:
