@@ -37,3 +37,53 @@ function is_app( $input_var = 'embedded', $test = 'app', $input_type = INPUT_GET
 	 */
 	return apply_filters( 'rkv_core_is_app', $is_app, $input_var, $test, $input_type, $filter );
 }
+
+
+/**
+ * Gets the current environment.
+ *
+ * @return string The current environment (e.g., 'production', 'staging', 'development', etc.).
+ */
+function get_env() {
+	$env = wp_get_environment_type();
+	$src = 'wp';
+
+	if ( defined( 'VIP_GO_APP_ENVIRONMENT' ) && VIP_GO_APP_ENVIRONMENT ) {
+		$env = VIP_GO_APP_ENVIRONMENT;
+		$src = 'wpvip';
+	}
+
+	$pantheon_env = filter_input( INPUT_ENV, 'PANTHEON_ENVIRONMENT', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
+	if ( $pantheon_env ) {
+		$env = $pantheon_env;
+		$src = 'pantheon';
+	}
+
+	if ( function_exists( 'is_wpe' ) && is_wpe() ) {
+		$src = 'wpe';
+	}
+
+	/**
+	 * Filters the current environment.
+	 * 
+	 * @param string $env The current environment.
+	 * @param string $src The source of the environment detection (e.g., 'wp', 'wpvip', 'pantheon', 'wpe').
+	 * @return string
+	 */
+	return apply_filters( 'rkv_core_get_env', $env, $src );
+}
+
+/**
+ * Checks if the current environment matches the given environment(s).
+ *
+ * @param  string|array[string] $env The environment(s) to check against.
+ * @return boolean
+ */
+function is_env( $env ) {
+	if ( is_string( $env ) ) {
+		$env = [ $env ];
+	}
+
+	return in_array( get_env(), $env, true );
+}
+
