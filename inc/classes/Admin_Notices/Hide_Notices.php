@@ -325,8 +325,8 @@ class Hide_Notices {
      */
     public function add_notice_settings_page() {
         add_options_page(
-            'Admin Notice Settings',
-            'Admin Notice Settings',
+            'Site Level Options',
+            'Site Level Options',
             'manage_options',
             'admin-notice-settings',
             [ $this, 'admin_notice_settings_page_html' ]
