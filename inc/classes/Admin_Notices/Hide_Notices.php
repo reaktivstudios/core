@@ -22,6 +22,13 @@ class Hide_Notices {
      * Add the actions.
      */
     public function __construct() {
+        add_action( 'init', [ $this, 'register_hooks' ] );
+    }
+
+    /**
+     * Register hooks
+     */
+    public function register_hooks() {
         // Register settings
         add_action( 'admin_init', [ $this, 'rkv_admin_notices_register_settings' ] );
 
