@@ -130,7 +130,7 @@ class Hide_Notices {
         //enqueue styles
         wp_enqueue_style(
             'rkv-admin-notice-css', 
-            RKV_UTILITIES_URL . 'inc/classes/Admin_Notices/assets/css/admin-notices.css', 
+            RKV_UTILITIES_URL . 'assets/css/admin-notices.css', 
             [], 
             '1.0.0', 
             'all'
@@ -139,7 +139,7 @@ class Hide_Notices {
         //enqueue scripts
         wp_enqueue_script(
             'rkv-admin-notice-js', 
-            RKV_UTILITIES_URL . 'inc/classes/Admin_Notices/assets/js/admin-notices.js', 
+            RKV_UTILITIES_URL . 'assets/js/admin-notices.js', 
             ['jquery'], 
             '1.0.0', 
             false
