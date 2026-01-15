@@ -61,7 +61,6 @@ jQuery(document).ready(function ($) {
       notice_item = button.closest('.rkv-shown-notice-item');
     }
     let notice_id = notice_item.attr('data-notice-id');
-
     notice_item.fadeOut(300);
     // move notice to the right tab
     notice_item.removeClass('active-notices-item whitelisted-notices-item blacklisted-notices-item');
@@ -70,7 +69,7 @@ jQuery(document).ready(function ($) {
         notice_item.find('.rkv-notice-action .whitelist').removeClass('undo');
         notice_item.find('.rkv-notice-action .whitelist').html(rkvAdminNoticesData.whitelist_label);
         notice_item.removeClass('rkv-shown-notice-item');
-        notice_item.wrap('<div class="rkv-panel-notice-item active-notices-item hidden-element" data-notice-id="' + notice_id + '"></div>');
+        notice_item.wrap('<div class="rkv-panel-notice-item active-notices-item" data-notice-id="' + notice_id + '"></div>');
         $('.rkv-admin-notices-panel-content').prepend(notice_item.closest('.rkv-panel-notice-item').prop('outerHTML'));
         notice_item.closest('.rkv-panel-notice-item').remove();
       } else {
@@ -94,6 +93,7 @@ jQuery(document).ready(function ($) {
         notice_item.addClass('blacklisted-notices-item hidden-element');
       }
     }
+    console.log(notice_item);
     notice_item.fadeIn(300);
     // update all tabs and notice counts
     updateAdminNoticesCounts();

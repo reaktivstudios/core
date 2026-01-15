@@ -98,7 +98,7 @@ class Hide_Notices {
      * Hides admin notices.
      */
     public function hide_notices() {
-        $this->admin_notice_data = array();
+        $this->admin_notice_data = (array) get_option('rkv_admin_notice_data', []);
 
         //enqueue admin scripts and styles
         add_action( 'admin_enqueue_scripts', [ $this, 'admin_scripts' ] );
@@ -117,7 +117,7 @@ class Hide_Notices {
         add_action('admin_footer', [ $this, 'render_panel' ] );
 
         // Admin notices whitelist, blacklist and undo ajax callback
-        add_action( 'wp_ajax_rkv_admin_notice_action', [ $this, 'adminNoticeAjaxHandler' ] );
+        add_action( 'wp_ajax_rkv_admin_notice_action', [ $this, 'admin_notice_ajax_handler' ] );
     }
 
     /**
@@ -203,7 +203,7 @@ class Hide_Notices {
      * Check if current user can manage notice
      * @return bool
      */
-    private function canSeeAdminToolbar() {
+    private function can_see_admin_toolbar() {
         $admin_notice_options = $this->admin_notice_options();
 
         $can_see_admin_toolbar = false;
@@ -224,7 +224,7 @@ class Hide_Notices {
      */
     public function add_toolbar_item( $wp_admin_bar ) {
 
-        if ( ! $this->canSeeAdminToolbar() || !is_admin_bar_showing() ) {
+        if ( ! $this->can_see_admin_toolbar() || !is_admin_bar_showing() ) {
             return;
         }
         
@@ -245,7 +245,7 @@ class Hide_Notices {
      * @return void
      */
     public function render_panel() {
-        if ( ! $this->canSeeAdminToolbar() ) {
+        if ( ! $this->can_see_admin_toolbar() ) {
             return;
         }
         ?>
@@ -279,8 +279,9 @@ class Hide_Notices {
      * Admin notices whitelist, blacklist and undo ajax callback
      *
      */
-    public function adminNoticeAjaxHandler()
-    {
+    public function admin_notice_ajax_handler() {
+        error_log( 'admin_notice_ajax_handler called' );
+        error_log( 'POST data: ' . print_r( $_POST, true ) );
         $response['status']  = 'error';
         $response['message'] = esc_html__( 'An error occured!', 'rkv-utilities' );
         $response['content'] = '';
@@ -290,7 +291,7 @@ class Hide_Notices {
         $action_option = isset( $_POST['action_option'] ) ? sanitize_text_field( $_POST['action_option'] ) : '';
         $notice_id = isset( $_POST['notice_id'] ) ? sanitize_text_field( $_POST['notice_id'] ) : '';
 
-        if ( ! $this->canSeeAdminToolbar() ) {
+        if ( ! $this->can_see_admin_toolbar() ) {
             $response['message'] = esc_html__( 'You do not have permission to manage admin notices.', 'rkv-utilities' );
         } elseif ( ! wp_verify_nonce( $nonce, 'rkv-admin-notices-action' ) ) {
             $response['message'] = esc_html__( 'Invalid action. Reload this page and try again.', 'rkv-utilities' );
