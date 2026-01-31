@@ -28,6 +28,9 @@ class Core {
 		// '\RKV\Utilities\FSE\Category_Post_Template',
 		// '\RKV\Utilities\FSE\Lock_Down',
 		// '\RKV\Utilities\FSE\Reset_To_Theme',
+		
+		// // Jetpack.
+		'\RKV\Utilities\Jetpack\Modules',
 
 		// // Post Types.
 		'\RKV\Utilities\Post_Type\CTAs',
