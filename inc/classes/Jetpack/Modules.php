@@ -27,7 +27,23 @@ class Modules {
 	 */
 	public function disable_modules( $modules ) {
 		$modules_to_disable = [
+			'blaze',
+			'comments',
+			'comment-likes',
 			'contact-form',
+			'copy-post',
+			'google-fonts',
+			'gravatar-hovercards',
+			'latex',
+			'likes',
+			'monitor',
+			'notes',
+			'post-list',
+			'seo-tools',
+			'sitemaps',
+			'subscriptions',
+			'widgets',
+			'wordads',
 		];
 		
 		foreach ( $modules_to_disable as $module ) {
