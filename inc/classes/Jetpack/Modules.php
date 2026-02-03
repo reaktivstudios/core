@@ -42,6 +42,7 @@ class Modules {
 			'seo-tools',
 			'sitemaps',
 			'subscriptions',
+			'vaultpress',
 			'widgets',
 			'wordads',
 		];
