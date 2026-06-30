@@ -3,6 +3,7 @@
 A collection of utilities, helpers and best practices at the foundation of what we do.
 
 ## Guides
+- [CLI](doc/guides/CLI.md)
 - [Cache](docs/guides/Cache.md)
 - [Comments](docs/guides/Comments.md)
 - [Post Types](docs/guides/Post_Type.md)

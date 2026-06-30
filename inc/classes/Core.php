@@ -22,6 +22,9 @@ class Core {
 	 */
 	private $classes = [
 		// More to come.
+		// CLI.
+		'\RKV\Utilities\CLI\Meta_Import',
+
 		// Comments.
 		'\RKV\Utilities\Comments\Disable',
 
