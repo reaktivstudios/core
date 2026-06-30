@@ -8,3 +8,4 @@
 eslint*
 pull_request_template.md
 composer.*
+package-lock.json
