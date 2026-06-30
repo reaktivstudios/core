@@ -1,0 +1,124 @@
+name: Package Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      zip_name: ${{ steps.version.outputs.zip_name }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          tools: composer
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
+
+      - name: Extract version from tag
+        id: version
+        run: |
+          TAG="${{ github.event.release.tag_name }}"
+          VERSION="${TAG#v}"
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "zip_name=core.${VERSION}.zip" >> "$GITHUB_OUTPUT"
+
+      - name: Stamp version into plugin files
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          sed -i "s/\* Version: .*/\* Version: ${VERSION}/" core.php
+          sed -i "s/define( 'RKV_CORE_VERSION', '.*' );/define( 'RKV_CORE_VERSION', '${VERSION}' );/" core.php
+
+      - name: Install PHP dependencies
+        run: composer dump-autoload --no-dev --optimize
+
+      - name: Install and build JS assets
+        run: npm ci && npm run build
+
+      - name: Generate CHANGELOG.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          FULL_COUNT=30
+          RELEASES_JSON=$(gh api "repos/${{ github.repository }}/releases?per_page=100" \
+            --paginate | \
+            jq -s 'add |
+                   [.[] | select(.prerelease == false)] |
+                   sort_by(.tag_name | ltrimstr("v") | split(".") | map(tonumber? // 0)) | reverse')
+
+          TOTAL=$(echo "$RELEASES_JSON" | jq 'length')
+
+          echo "# Changelog" > CHANGELOG.md
+          echo "" >> CHANGELOG.md
+
+          echo "$RELEASES_JSON" | jq -r --argjson n "$FULL_COUNT" \
+            '.[:$n] | .[] | "## \(.name) (\(.published_at | split("T")[0]))\n\n\(.body)\n"' \
+            >> CHANGELOG.md
+
+          if [ "$TOTAL" -gt "$FULL_COUNT" ]; then
+            echo "---" >> CHANGELOG.md
+            echo "" >> CHANGELOG.md
+            echo "## Older Releases" >> CHANGELOG.md
+            echo "" >> CHANGELOG.md
+            echo "$RELEASES_JSON" | jq -r --argjson n "$FULL_COUNT" \
+              '.[$n:] | .[] | "- \(.name) — \(.published_at | split("T")[0])"' \
+              >> CHANGELOG.md
+            echo "" >> CHANGELOG.md
+          fi
+
+          echo "_For the complete release history, see [GitHub Releases](https://github.com/${{ github.repository }}/releases)._" >> CHANGELOG.md
+
+      - name: Create plugin zip
+        run: |
+          npm run plugin-zip
+          ZIP_CREATED=$(find . -maxdepth 1 -name "*.zip" | head -1)
+          if [ -z "$ZIP_CREATED" ]; then
+            echo "::error::plugin-zip did not produce a zip file"
+            exit 1
+          fi
+          mv "$ZIP_CREATED" "${{ steps.version.outputs.zip_name }}"
+
+      - name: Attach zip to release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload "${{ github.event.release.tag_name }}" \
+            "${{ steps.version.outputs.zip_name }}" --clobber
+
+  push-to-reaktivist:
+    needs: package
+    runs-on: ubuntu-latest
+    # Only run on full releases, not pre-releases
+    if: ${{ !github.event.release.prerelease }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: reaktivstudios/reaktivist
+          token: ${{ secrets.REAKTIVIST_PAT }}
+
+      - name: Download zip from release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release download "${{ github.event.release.tag_name }}" \
+            --pattern "core.*.zip" \
+            --repo ${{ github.repository }}
+
+      - name: Commit zip to packages/plugins
+        run: |
+          cp "${{ needs.package.outputs.zip_name }}" packages/plugins/
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "packages/plugins/${{ needs.package.outputs.zip_name }}"
+          git commit -m "chore: add core ${{ needs.package.outputs.version }} zip"
+          git push

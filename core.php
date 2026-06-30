@@ -14,6 +14,7 @@
 
 define( 'RKV_UTILITIES_PATH', plugin_dir_path( __FILE__ ) );
 define( 'RKV_UTILITIES_URL', plugin_dir_url( __FILE__ ) );
+define( 'RKV_CORE_VERSION', '0.1.0' );
 
 /**
  * Autoloader
