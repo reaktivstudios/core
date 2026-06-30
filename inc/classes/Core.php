@@ -22,6 +22,8 @@ class Core {
 	 */
 	private $classes = [
 		// More to come.
+		// Comments.
+		'\RKV\Utilities\Comments\Disable',
 
 
 		// FSE.
