@@ -1,0 +1,6 @@
+feature: ['feature/*', 'feat/*', 'feature-*']
+minor: ['feature/*', 'feat/*', 'feature-*']
+fix: ['fix/*', 'hotfix/*', 'fix-*', 'hotfix-*']
+patch: ['fix/*', 'hotfix/*', 'fix-*', 'hotfix-*']
+chore: ['chore/*', 'maintenance/*', 'chore-*', 'maintentance-*']
+skip-changelog: ['skip/*', 'exclude/*', 'skip-*', 'exclude-*']
