@@ -1,0 +1,10 @@
+.git
+.git*
+/node_modules
+.editorconfig
+.npmignore
+.phpcs.xml.dist
+*.zip
+eslint*
+pull_request_template.md
+composer.*
