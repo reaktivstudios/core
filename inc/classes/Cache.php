@@ -14,15 +14,15 @@ namespace RKV\Utilities;
  * ```php
  * // Get a value from the cache.
  * $var = new \RKV\Utilities\Cache(
- * 	'my_cache_key',
- * 	function() {
- * 		// Expensive code to generate the value if not found in cache.
- * 		return 'my_cache_value';
- * 	},
- * 	'my_cache_group',
- * 	DAY_IN_SECONDS, // Cache expiration time in seconds.
+ *  'my_cache_key',
+ *  function() {
+ *      // Expensive code to generate the value if not found in cache.
+ *      return 'my_cache_value';
+ *  },
+ *  'my_cache_group',
+ *  DAY_IN_SECONDS, // Cache expiration time in seconds.
  *  MONTH_IN_SECONDS, // Long expiration time in seconds.
- * 	'my_fallback_value' // Fallback value if the cache is not found.
+ *  'my_fallback_value' // Fallback value if the cache is not found.
  * )->get();
  *
  * // Clear the cache.

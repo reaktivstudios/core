@@ -11,6 +11,18 @@ This plugin is a collection of utilities, best practices, and documents that for
 
 ---
 
+## Local Environment Setup
+
+Clone the repository to the `wp-content/plugins` directory of your local instance.
+
+Run the following commands:
+
+```
+composer install
+npm install
+npm run docs:serve
+```
+
 ## Updating Documentation
 
 Documentation for this site lives alongside the code for Foundation, Reaktiv's utility plugin that underpins most of the work that we do.

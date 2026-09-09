@@ -32,6 +32,9 @@ class Core {
 		// // Post Types.
 		'\RKV\Utilities\Post_Type\CTAs',
 
+		// // Admin Notices.
+		'\RKV\Utilities\Admin_Notices\Hide_Notices',
+
 		// // REST.
 		// '\RKV\Utilities\REST\Load_More',
 		// '\RKV\Utilities\REST\Post_Select',

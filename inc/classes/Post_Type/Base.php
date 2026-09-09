@@ -1,6 +1,6 @@
 <?php
 /**
- * Base post type class.
+ * Adds familiar helpers and methods for setting up a custom post type.
  *
  * @package rkv-utilities
  */
@@ -8,7 +8,34 @@
 namespace RKV\Utilities\Post_Type;
 
 /**
- * Define the base class and associated methods.
+ * Extend this class and then initiate the class to add the custom post type to your theme.
+ *
+ * The only required property is the post type name, which is used to register the post type.
+ *
+ * Use the `initialize_post_type` method to set up the post type arguments and override the default arguments.
+ *
+ * Example usage:
+ * ```php
+ * // Include the class.
+ * class Custom_Post_Type extends Base {
+ *    protected $post_type_name = 'rkv-cta';
+ *
+ *    protected function initialize_post_type() {
+ *       $this->post_type_args = [
+ *           'label'     => __( 'CTAs', 'rkv-utilities' ),
+ *           'labels'    => [
+ *               'name'          => _x( 'CTAs', 'Post Type General Name', 'rkv-utilities' ),
+ *               'singular_name' => _x( 'CTA', 'Post Type Singular Name', 'rkv-utilities' ),
+ *           ],
+ *           'supports'  => [ 'title', 'editor', 'revisions' ],
+ *           'public'    => false,
+ *       ]
+ *     }
+ * }
+ *
+ * // Instantiate the class.
+ * new Custom_Post_Type();
+ * ```
  */
 abstract class Base {
 
@@ -50,6 +77,9 @@ abstract class Base {
 	/**
 	 * Flag to remove the post type slug from permalinks.
 	 * Defaults to false to keep the slug.
+	 *
+	 * Set this to true to remove the name of the post type from the permalink.
+	 * i.e., `/post-type-name/post-name/` becomes `/post-name/`.
 	 *
 	 * @var bool
 	 */
