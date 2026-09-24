@@ -37,26 +37,17 @@ function deprecated_class( $old_namespace, $class_name ) {
  * @return void
  */
 function deprecated_autoloader( $class_name = '' ) {
-	// Unregister the deprecated autoloader to prevent recursion.
-	spl_autoload_unregister( __NAMESPACE__ . '\\deprecated_autoloader' );
 	if ( 0 === strpos( $class_name, 'RKV\\Utilities\\' ) ) {
-		if ( ! class_exists( $class_name ) ) {
-			$file_base = str_replace( '\\', '/', $class_name );
-			$file      = sprintf(
-				'%1$s/deprecated/inc/classes/%2$s.php',
-				RKV_CORE_PATH,
-				str_replace( 'RKV\\Utilities\\', '', $file_base )
-			);
-			
-			if ( file_exists( $file ) ) {
-				require_once $file;
-			}
+		$file_base = str_replace( '\\', '/', $class_name );
+		$file      = sprintf(
+			'%1$s/deprecated/inc/classes/%2$s.php',
+			RKV_CORE_PATH,
+			str_replace( 'RKV\\Utilities\\', '', $file_base )
+		);
+		
+		if ( file_exists( $file ) ) {
+			require_once $file;
 		}
 	}
-
-	// Always re-register the deprecated autoloader.
-	spl_autoload_register( __NAMESPACE__ . '\\deprecated_autoloader' );
 }
-
-// Invoking this will register the deprecated autoloader.
-deprecated_autoloader();
+spl_autoload_register( __NAMESPACE__ . '\\deprecated_autoloader' );
