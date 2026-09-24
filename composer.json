@@ -1,10 +1,11 @@
 {
-    "name": "rkv/foundation",
+    "name": "rkv/core",
     "description": "A collection of utilities, helpers and best practices for WordPress.",
     "type": "wordpress-plugin",
     "autoload": {
         "psr-4": {
-            "RKV\\Utilities\\": "inc/classes"
+            "RKV\\Utilities\\": "deprecated/inc/classes",
+            "RKV\\Core\\": "inc/classes"
         }
     },
 	"authors": [
