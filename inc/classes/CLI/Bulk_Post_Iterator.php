@@ -8,10 +8,10 @@
  *  - memory cleanup 
  * for bulk operations on posts.
  *
- * @package rkv-utilities
+ * @package rkv-core
  */
 
-namespace RKV\Utilities\CLI;
+namespace RKV\Core\CLI;
 
 use stdClass;
 use WP_CLI;
@@ -164,7 +164,7 @@ abstract class Bulk_Post_Iterator extends Base {
 
 		$found_posts = $query->found_posts;
 
-		$this->progress_bar = \WP_CLI\Utils\make_progress_bar( __( 'Processing posts', 'rkv-utilities' ), $found_posts );
+		$this->progress_bar = \WP_CLI\Utils\make_progress_bar( __( 'Processing posts', 'rkv-core' ), $found_posts );
 	}
 
 	/**

@@ -2,10 +2,10 @@
 /**
  * Base taxonomy class.
  *
- * @package rkv-utilities
+ * @package rkv-core
  */
 
-namespace RKV\Utilities\Taxonomy;
+namespace RKV\Core\Taxonomy;
 
 /**
  * Define the base class and associated methods.
@@ -16,15 +16,15 @@ namespace RKV\Utilities\Taxonomy;
  *
  * ```php
  * // Include the class.
- * class Custom_Taxonomy extends \RKV\Utilities\Taxonomy\Base {
+ * class Custom_Taxonomy extends \RKV\Core\Taxonomy\Base {
  *    protected $taxonomy_name = 'rkv-example-taxonomy';
  *
  *    protected function initialize_taxonomy() {
  *       $this->taxonomy_args = [
- *           'label'     => __( 'Taxonomy Name', 'rkv-utilities' ),
+ *           'label'     => __( 'Taxonomy Name', 'rkv-core' ),
  *           'labels'    => [
- *               'name'          => _x( 'Taxonimies', 'Post Type General Name', 'rkv-utilities' ),
- *               'singular_name' => _x( 'Taxonomy', 'Post Type Singular Name', 'rkv-utilities' ),
+ *               'name'          => _x( 'Taxonimies', 'Post Type General Name', 'rkv-core' ),
+ *               'singular_name' => _x( 'Taxonomy', 'Post Type Singular Name', 'rkv-core' ),
  *           ],
  *           'hierarchical'    => false,
  *       ]

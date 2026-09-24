@@ -2,10 +2,10 @@
 /**
  * Gets templates for posts in specific categories.
  *
- * @package rkv-utilities
+ * @package rkv-core
  */
 
-namespace RKV\Utilities\FSE;
+namespace RKV\Core\FSE;
 
 /**
  * Category post template class.

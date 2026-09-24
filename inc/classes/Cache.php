@@ -2,10 +2,10 @@
 /**
  * Cache class.
  *
- * @package rkv-utilities
+ * @package rkv-core
  */
 
-namespace RKV\Utilities;
+namespace RKV\Core;
 
 /**
  * Cache class.
@@ -13,7 +13,7 @@ namespace RKV\Utilities;
  * Example usage:
  * ```php
  * // Get a value from the cache.
- * $var = new \RKV\Utilities\Cache(
+ * $var = new \RKV\Core\Cache(
  *  'my_cache_key',
  *  function() {
  *      // Expensive code to generate the value if not found in cache.
@@ -26,11 +26,11 @@ namespace RKV\Utilities;
  * )->get();
  *
  * // Clear the cache.
- * new \RKV\Utilities\Cache( 'my_cache_key' )->clear();
+ * new \RKV\Core\Cache( 'my_cache_key' )->clear();
  * // Clear the group cache.
- * new \RKV\Utilities\Cache( 'my_cache_key' )->clear_group();
+ * new \RKV\Core\Cache( 'my_cache_key' )->clear_group();
  * // Clear the long expiration cache.
- * new \RKV\Utilities\Cache( 'my_cache_key' )->clear( true );
+ * new \RKV\Core\Cache( 'my_cache_key' )->clear( true );
  * ```
  */
 class Cache {

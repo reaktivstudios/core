@@ -2,7 +2,7 @@
 /**
  * The core RKV utilities class.
  *
- * @package rkv-utilities
+ * @package rkv-core
  */
 
 namespace RKV\Core;

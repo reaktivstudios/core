@@ -2,10 +2,10 @@
 /**
  * CTA post type class.
  *
- * @package rkv-utilities
+ * @package rkv-core
  */
 
-namespace RKV\Utilities\Post_Type;
+namespace RKV\Core\Post_Type;
 
 /**
  * Define the CTA class and associated methods.
@@ -25,10 +25,10 @@ class CTAs extends Base {
 	 */
 	protected function initialize_post_type() {
 		$this->post_type_args = [
-			'label'     => __( 'CTAs', 'rkv-utilities' ),
+			'label'     => __( 'CTAs', 'rkv-core' ),
 			'labels'    => [
-				'name'          => _x( 'CTAs', 'Post Type General Name', 'rkv-utilities' ),
-				'singular_name' => _x( 'CTA', 'Post Type Singular Name', 'rkv-utilities' ),
+				'name'          => _x( 'CTAs', 'Post Type General Name', 'rkv-core' ),
+				'singular_name' => _x( 'CTA', 'Post Type Singular Name', 'rkv-core' ),
 			],
 			'supports'  => [ 'title', 'editor', 'revisions' ],
 			'public'    => false,
