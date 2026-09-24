@@ -12,7 +12,7 @@ use RKV\Core\FSE\Lock_Down as CoreLock_Down;
 /**
  * Lock FSE Down.
  */
-class Lock_Down  extends CoreLock_Down {
+class Lock_Down extends CoreLock_Down {
 
 	/**
 	 * Add the actions.

@@ -12,7 +12,7 @@ use RKV\Core\FSE\Reset_To_Theme as CoreReset_To_Theme;
 /**
  * Reset to theme class.
  */
-class Reset_To_Theme  extends CoreReset_To_Theme {
+class Reset_To_Theme extends CoreReset_To_Theme {
 
 	/**
 	 * The endpoint.
