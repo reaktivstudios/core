@@ -7,10 +7,12 @@
 
 namespace RKV\Utilities\FSE;
 
+use RKV\Core\FSE\Hide_Menu as CoreHide_Menu;
+
 /**
  * Hide FSE Menu.
  */
-class Hide_Menu {
+class Hide_Menu  extends CoreHide_Menu {
 
 	/**
 	 * Add the actions.
