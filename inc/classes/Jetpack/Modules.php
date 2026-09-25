@@ -1,10 +1,10 @@
 <?php
 /**
  * Disable Jetpack Modules.
- * 
+ *
  * @package rkv-theme
  */
- 
+
 namespace RKV\Core\Jetpack;
 
 /**
@@ -46,7 +46,7 @@ class Modules {
 			'widgets',
 			'wordads',
 		];
-		
+
 		foreach ( $modules_to_disable as $module ) {
 			unset( $modules[ $module ] );
 		}

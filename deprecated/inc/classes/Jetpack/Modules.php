@@ -1,10 +1,10 @@
 <?php
 /**
  * Modules Jetpack Modules.
- * 
+ *
  * @package rkv-theme
  */
- 
+
 namespace RKV\Utilities\Jetpack;
 
 use RKV\Core\Jetpack\Modules as New_Modules;
