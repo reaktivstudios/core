@@ -2,10 +2,10 @@
 /**
  * Adds an authenticated endpoint to reset FSE templates to the theme.
  * 
- * @package rkv-core
+ * @package rkv-utilities
  */
 
-namespace RKV\Core\FSE;
+namespace RKV\Utilities\FSE;
 
 /**
  * Reset to theme class.

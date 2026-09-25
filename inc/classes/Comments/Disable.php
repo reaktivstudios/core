@@ -2,10 +2,10 @@
 /**
  * The Disable comments class.
  *
- * @package rkv-utilities
+ * @package rkv-core
  */
 
-namespace RKV\Utilities\Comments;
+namespace RKV\Core\Comments;
 
 /**
  * Completely removes comments.
@@ -89,7 +89,7 @@ class Disable {
 	 */
 	public function filter_query() {
 		if ( is_comment_feed() ) {
-			wp_die( esc_html__( 'Comments are closed.', 'rkv-utilities' ), '', array( 'response' => 403 ) );
+			wp_die( esc_html__( 'Comments are closed.', 'rkv-core' ), '', array( 'response' => 403 ) );
 		}
 	}
 
@@ -110,7 +110,7 @@ class Disable {
 		global $pagenow;
 
 		if ( in_array( $pagenow, array( 'comment.php', 'edit-comments.php', 'options-discussion.php' ), true ) ) {
-			wp_die( esc_html__( 'Comments are closed.', 'rkv-utilities' ), '', array( 'response' => 403 ) );
+			wp_die( esc_html__( 'Comments are closed.', 'rkv-core' ), '', array( 'response' => 403 ) );
 		}
 
 		remove_menu_page( 'edit-comments.php' );

@@ -2,10 +2,10 @@
 /**
  * Gets templates for posts in specific categories.
  *
- * @package rkv-core
+ * @package rkv-utilities
  */
 
-namespace RKV\Core\FSE;
+namespace RKV\Utilities\FSE;
 
 /**
  * Category post template class.
@@ -17,7 +17,8 @@ class Category_Post_Template {
 	 *
 	 * @var array
 	 */
-	private array $category_templates = [];
+	private array $category_templates = [
+	];
 
 	/**
 	 * Add the actions.

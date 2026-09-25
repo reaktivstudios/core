@@ -2,10 +2,10 @@
 /**
  * Prevents unlocking locked blocks in production.
  * 
- * @package rkv-core
+ * @package rkv-utilities
  */
 
-namespace RKV\Core\FSE;
+namespace RKV\Utilities\FSE;
 
 /**
  * Lock FSE Down.

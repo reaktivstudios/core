@@ -5,7 +5,7 @@
  * @package rkv-theme
  */
  
-namespace RKV\Utilities\Jetpack;
+namespace RKV\Core\Jetpack;
 
 /**
  * Class to manage Jetpack modules.

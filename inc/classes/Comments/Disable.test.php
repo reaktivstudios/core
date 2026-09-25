@@ -2,17 +2,17 @@
 /**
  * Unit tests for Disable class.
  *
- * @package rkv-utilities
+ * @package rkv-core
  */
 
-namespace RKV\Utilities\Comments;
+namespace RKV\Core\Comments;
 
 use WP_Mock\Tools\TestCase;
 
 /**
  * Class Disable_Test
  *
- * @covers \RKV\Utilities\Comments\Disable
+ * @covers \RKV\Core\Comments\Disable
  */
 class Disable_Test extends TestCase {
 

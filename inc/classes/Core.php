@@ -2,10 +2,10 @@
 /**
  * The core RKV utilities class.
  *
- * @package rkv-utilities
+ * @package rkv-core
  */
 
-namespace RKV\Utilities;
+namespace RKV\Core;
 
 /**
  * Initialize all other classes here.
@@ -23,27 +23,27 @@ class Core {
 	private $classes = [
 		// More to come.
 		// CLI.
-		'\RKV\Utilities\CLI\Meta_Import',
+		'\RKV\Core\CLI\Meta_Import',
 
 		// Comments.
-		'\RKV\Utilities\Comments\Disable',
+		'\RKV\Core\Comments\Disable',
 
 
 		// FSE.
-		// '\RKV\Utilities\FSE\Category_Post_Template',
-		// '\RKV\Utilities\FSE\Lock_Down',
-		// '\RKV\Utilities\FSE\Reset_To_Theme',
+		// '\RKV\Core\FSE\Category_Post_Template',
+		// '\RKV\Core\FSE\Lock_Down',
+		// '\RKV\Core\FSE\Reset_To_Theme',
 		
 		// // Jetpack.
-		'\RKV\Utilities\Jetpack\Modules',
+		'\RKV\Core\Jetpack\Modules',
 
 		// // Post Types.
-		'\RKV\Utilities\Post_Type\CTAs',
+		'\RKV\Core\Post_Type\CTAs',
 
 		// // REST.
-		// '\RKV\Utilities\REST\Load_More',
-		// '\RKV\Utilities\REST\Post_Select',
-		// '\RKV\Utilities\REST\Search',
+		// '\RKV\Core\REST\Load_More',
+		// '\RKV\Core\REST\Post_Select',
+		// '\RKV\Core\REST\Search',
 	];
 
 	/**

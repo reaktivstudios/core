@@ -2,10 +2,10 @@
 /**
  * Hides the FSE menu in production.
  * 
- * @package rkv-core
+ * @package rkv-utilities
  */
 
-namespace RKV\Core\FSE;
+namespace RKV\Utilities\FSE;
 
 /**
  * Hide FSE Menu.

@@ -2,10 +2,10 @@
 /**
  * Find posts and import meta from CSV.
  *
- * @package rkv-utilities
+ * @package rkv-core
  */
 
-namespace RKV\Utilities\CLI;
+namespace RKV\Core\CLI;
 
 if ( ! defined( '\WP_CLI' ) ) {
 	return;
