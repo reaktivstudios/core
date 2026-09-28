@@ -17,8 +17,7 @@ class Category_Post_Template {
 	 *
 	 * @var array
 	 */
-	private array $category_templates = [
-	];
+	private array $category_templates = [];
 
 	/**
 	 * Add the actions.

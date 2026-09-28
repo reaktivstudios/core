@@ -7,10 +7,12 @@
 
 namespace RKV\Utilities\FSE;
 
+use RKV\Core\FSE\Category_Post_Template as CoreCategory_Post_Template;
+
 /**
  * Category post template class.
  */
-class Category_Post_Template {
+class Category_Post_Template extends CoreCategory_Post_Template {
 
 	/**
 	 * Categories supporting a single post template.
