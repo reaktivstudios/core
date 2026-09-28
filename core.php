@@ -24,8 +24,3 @@ require_once RKV_CORE_PATH . 'vendor/autoload.php';
 require_once RKV_CORE_PATH . 'deprecated/helpers.php';
 
 require_once RKV_CORE_PATH . 'inc/functions.php';
-
-/**
- * Boostrap all of our core functions.
- */
-new RKV\Core\Core();
