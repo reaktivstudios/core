@@ -42,7 +42,7 @@ function deprecated_autoloader( $class_name = '' ) {
 		$file      = sprintf(
 			'%1$s/deprecated/inc/classes/%2$s.php',
 			RKV_CORE_PATH,
-			str_replace( 'RKV\\Utilities\\', '', $file_base )
+			str_replace( 'RKV/Utilities/', '', $file_base )
 		);
 		
 		if ( file_exists( $file ) ) {
