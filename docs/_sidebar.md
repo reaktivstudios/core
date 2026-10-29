@@ -6,6 +6,7 @@
 - Guides
 	- [Post Type](./guides/Post_Type.md)
 	- [Cache](./guides/Cache.md)
+	- [Icons](./guides/Icons.md)
 
 - Contributing
 	- [Contributing Guidelines](./contributing/contributing-guidelines.md)
